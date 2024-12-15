@@ -1,0 +1,33 @@
+import requests
+from unicodedata import category
+
+
+def download(h: str):
+    url = f'https://www.google.com/search?sca_esv=a503f796cff7bd50&q=cat&udm=2&fbs=AEQNm0DeRu8nq6zo5eFbBUZ1pIamG6P2tUgfGY85DSmJLGTipQonTi41PBJDiEx8Bx5TRHQj6kOXSBYYOavQhH-SNEv20YR3TkyDKZ3bz46xookgtrqPNfZy7B5xikCWkovLC8ywT2ThXKE4YDrxviQgAs2srvNS2_6uIPBGlt0Hr8OTeZ8LMseoOP4zEjFo9wfwdYI8Y2TQts6zYyWbYmXxpivPNgEu0zYAksxsqgEEQvYEw_CS3eI&sa=X&ved=2ahUKEwi_5_XByamKAxVVU6QEHYkxE8IQtKgLegQIFhAB'
+    r = requests.get(url, params={
+        'q': {h},
+    })
+    if r.status_code == 200:
+        print(r.url)
+        # for i in r.text:
+    else:
+        print(r.status_code)
+def mane():
+    h = input("Запрос:")
+    download(h)
+
+
+mane()
+
+import matplotlib.pyplot as plt
+
+x = [50, 80, 100, 140]
+y = [0, 4, 2, 10]
+plt.plot(x, y, color='green', marker='o', linewidth=2, markersize=12)
+plt.xlabel('Ось х')  # Подпись для оси х
+plt.ylabel('Ось y')  # Подпись для оси y
+plt.title('Новый график')  # Название
+
+plt.show()
+
+
